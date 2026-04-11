@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.Scanner;
 
 
 // public class Main {
@@ -65,11 +66,34 @@ import java.util.*;
 
 
 /////////////// ------------ switch statemtne _______;;;;??
- 
+/// 
+// /// 
+//    public class Main{
+//     public static void main(String[] args) {
+        
+//     }
+//    }
+
+
+
 
 public class Main {
 
     public static void main(String[] args) {
-        
+        int n = 1;
+        while (n <= 10) {
+            System.out.println(n);
+            n++;
+        }
     }
 }
+
+
+
+
+// public class Main{
+    
+//     public static void main(String[] args) {
+        
+//     }
+//     }
