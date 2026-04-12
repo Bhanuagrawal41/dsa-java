@@ -77,16 +77,16 @@ import java.util.Scanner;
 
 
 
-public class Main {
+// public class Main {
 
-    public static void main(String[] args) {
-        int n = 1;
-        while (n <= 10) {
-            System.out.println(n);
-            n++;
-        }
-    }
-}
+//     public static void main(String[] args) {
+//         int n = 1;
+//         while (n <= 10) {
+//             System.out.println(n);
+//             n++;
+//         }
+//     }
+// }
 
 
 
@@ -97,3 +97,34 @@ public class Main {
         
 //     }
 //     }
+
+
+// printing a square pattern
+
+// public class Main{
+//     public static void main(String[] args) {
+//          for(int i = 1; i<=4; i++){
+//             for(int j = 1; j<= 4; j++){
+//                 System.out.print("*");
+//             }
+//             System.out.println("*");
+//          }
+//     }
+// }
+
+// reverse a number using while loop
+
+
+public class Main {
+    public static void main(String[] args) {
+        int num = 22062006;
+
+        while (num>0) {
+            int lastdigit = num % 10;
+            System.out.print(lastdigit + " ");
+             num = num/10;
+            
+        }
+        System.out.println();
+    }
+}
