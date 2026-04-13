@@ -115,16 +115,148 @@ import java.util.Scanner;
 // reverse a number using while loop
 
 
-public class Main {
-    public static void main(String[] args) {
-        int num = 22062006;
+// public class Main {
+//     public static void main(String[] args) {
+//         int num = 22062006;
 
-        while (num>0) {
-            int lastdigit = num % 10;
-            System.out.print(lastdigit + " ");
-             num = num/10;
+//         while (num>0) {
+//             int lastdigit = num % 10;
+//             System.out.print(lastdigit + " ");
+//              num = num/10;
             
-        }
-        System.out.println();
-    }
-}
+//         }
+//         System.out.println();
+//     }
+// }
+
+// reverse a no and store that no 
+
+
+// public class Main {
+
+//     public static void main(String[] args) {
+//         int no = 123;
+//         int revert = 0;
+        
+//         while (no > 0 ) {
+//            int lastdigit = no % 10;
+//             revert = (revert*10) + lastdigit;
+//             no = no/10;
+           
+            
+//         }
+//         System.out.println(revert);
+//     }
+// }
+
+////----------do while loops-------------//
+
+
+//--------------------------------//
+// public class Main{
+//     public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+
+//        do{
+//         System.out.println("enter your number : ");
+//         int n = sc.nextInt();
+//         if(n % 10 == 0){
+            
+//             break;
+            
+//         }
+//         System.out.println(n);
+//        }while(true);
+
+
+//         }
+// }
+
+
+
+
+// public class Main {
+
+//     public static void main(String[] args) {
+//         Scanner sc = new Scanner(System.in);
+//         do{
+//             System.out.println("enter your number");
+//             int n = sc.nextInt();
+            
+//             if (n % 10 == 0) {
+//                 continue;
+//             }
+//             System.out.println(n);
+//         }while(true);
+//     }
+// }
+
+/////////---------------------learining functions ------------------//////////////
+// public class Main{
+
+//    public static int multi(int a , int b){
+
+//     int product = a * b;
+    
+//     return product;
+
+
+
+//    }
+
+
+//     public static void main(String[] args) {
+        
+//         multi(5, 80);
+//     }
+// }
+
+//-----------------------------fucntions -------------//////
+
+
+
+
+// public class Main {
+
+//     public static void fact(int a){
+//         int fact = 1;
+        
+//         for(int i = 1; i <= a; i++){
+//             fact = fact * i;
+           
+
+
+
+//         }
+//          System.out.println(fact);
+
+
+//     }
+//     public static void binary(int a , int b){
+        
+
+//     }
+
+
+//     public static void main(String[] args) {
+//         fact(5);
+        
+//     }
+// }
+
+
+// public class Main {
+  
+
+      
+//     public static int average(int a, int b, int c){
+//         int avg = (a + b + c)/2;
+//         System.out.println(avg);
+//         return 0;
+//     }
+//     public static void main(String[] args) {
+//         average(12,  5, 8);
+        
+//     }
+// }
+
