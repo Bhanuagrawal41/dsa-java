@@ -1,5 +1,6 @@
 import java.util.*;
-import java.util.Scanner;
+
+public class Main{
 
 
 // public class Main {
@@ -260,3 +261,33 @@ import java.util.Scanner;
 //     }
 // }
 
+// public class Main{
+//      public static boolean isprimme(int n){
+//         boolean isprimme = true;
+//         for(int i = 2; i <= n-1; i++){
+//             if (n % i == 0) {
+
+//                 isprimme = false;
+                
+//             }
+//         }
+//         return isprimme;
+
+
+//      }
+
+
+//     public static void main(String[] args) {
+//         System.out.println(isprimme(10));
+        
+//     }
+// }
+///--------- checking whether the no is prime or not --------//
+/// 
+   public static void main(String[] args) {
+    for(int i = 5; i<=1; i--){
+          System.out.println("hello");
+    }
+
+   }
+}
