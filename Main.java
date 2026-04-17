@@ -300,7 +300,7 @@ public class Main{
       // }
       for(int i = 1; i<=4; i++){
             for(int j = 1; j <= i; j++){
-                  System.out.print(j);
+                  System.out.print("hey tommarow is my exam so no coding tody bud");
             }
             System.out.println();
       }
