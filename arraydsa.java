@@ -1,4 +1,5 @@
 import java.util.*;
+   
 
 public class arraydsa {
 
@@ -36,18 +37,33 @@ public class arraydsa {
     //--------------------this is the lenear search ----- before the teacher explains to me -////////////
      //----------now doing it using the functions -----------//
          
-     public static void lenear(int match[]){
+// how to find the largest value--------////
+     public static int largest(int numbers[]){
+        int largests = Integer.MIN_VALUE;
+        int smallest = Integer.MAX_VALUE;
+        for(int i = 0; i < numbers.length; i++){
+            if (i > largests) {
+                largests = numbers[i];
+                
+            }
+            if (smallest > numbers[i]) {
+                smallest = numbers[i];
+                
+            }
+
+        }
+        System.out.println("smallest is value is :" + smallest);
+        return largests ;
         
-
-     }
-
+     }         
 
 
-     public static void main(String[] args) {
-       int match [] = {99, 85 ,69, 2, 10, 56, 89};
-     }
-
-    
+    public static void main(String[] args) {
+      int  numbers[] ={1,2,6,3,5};
+      System.out.println("The largest no is :" + largest(numbers));
+      
+     
+    }
 
 
 }
