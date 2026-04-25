@@ -38,32 +38,69 @@ public class arraydsa {
      //----------now doing it using the functions -----------//
          
 // how to find the largest value--------////
-     public static int largest(int numbers[]){
-        int largests = Integer.MIN_VALUE;
-        int smallest = Integer.MAX_VALUE;
-        for(int i = 0; i < numbers.length; i++){
-            if (i > largests) {
-                largests = numbers[i];
+    //  public static int largest(int numbers[]){
+    //     int largests = Integer.MIN_VALUE;
+    //     int smallest = Integer.MAX_VALUE;
+    //     for(int i = 0; i < numbers.length; i++){
+    //         if (i > largests) {
+    //             largests = numbers[i];
                 
-            }
-            if (smallest > numbers[i]) {
-                smallest = numbers[i];
+    //         }
+    //         if (smallest > numbers[i]) {
+    //             smallest = numbers[i];
                 
-            }
+    //         }
 
-        }
-        System.out.println("smallest is value is :" + smallest);
-        return largests ;
+    //     }
+    //     System.out.println("smallest is value is :" + smallest);
+    //     return largests ;
         
-     }         
+    //  }         
+
+
+    // public static void main(String[] args) {
+    //   int  numbers[] ={1,2,6,3,5};
+    //   System.out.println("The largest no is :" + largest(numbers));
+      
+     
+    // }
+  public static int binarysearch(int numbers[], int key){
+    int start =  numbers[0];
+    int end = numbers.length-1;
+    int mid = start + end / 2;
+
+    while (start <= end) {
+        if (mid == key) {
+            System.out.println("key founded");
+            
+        }
+        if (mid > key) {
+            end = mid-1;
+            mid = 
+            
+        }
+        if (mid < key) {
+            start = mid + 1;
+            
+        }
+        
+    }
+
+
+
+
+    return key;
+
+
+  }
 
 
     public static void main(String[] args) {
-      int  numbers[] ={1,2,6,3,5};
-      System.out.println("The largest no is :" + largest(numbers));
-      
-     
+        int numbers[] = {2, 4, 6, 8, 10, 12, 14};
+        int key = 10;
+        
+        System.out.println(binarysearch(numbers, key));
+       
     }
-
 
 }
