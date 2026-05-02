@@ -64,43 +64,181 @@ public class arraydsa {
       
      
     // }
-  public static int binarysearch(int numbers[], int key){
-    int start =  numbers[0];
-    int end = numbers.length-1;
-    int mid = start + end / 2;
+//   public static int binarysearch(int numbers[], int key){
+//     int start =  numbers[0];
+//     int end = numbers.length-1;
+//     int mid = start + end / 2;
 
-    while (start <= end) {
-        if (mid == key) {
-            System.out.println("key founded");
+//     while (start <= end) {
+//         if (mid == key) {
+//             System.out.println("key founded");
             
-        }
-        if (mid > key) {
-            end = mid-1;
-            mid = 
+//         }
+//         if (mid > key) {
+//             end = mid-1;
+//             mid = 
             
-        }
-        if (mid < key) {
-            start = mid + 1;
+//         }
+//         if (mid < key) {
+//             start = mid + 1;
             
-        }
+//         }
         
-    }
+//     }
 
 
 
 
-    return key;
+//     return key;
 
 
-  }
+//   }
 
 
-    public static void main(String[] args) {
-        int numbers[] = {2, 4, 6, 8, 10, 12, 14};
-        int key = 10;
+//     public static void main(String[] args) {
+//         int numbers[] = {2, 4, 6, 8, 10, 12, 14};
+//         int key = 10;
         
-        System.out.println(binarysearch(numbers, key));
+//         System.out.println(binarysearch(numbers, key));
        
+//     }
+
+// }
+
+// public static void reverse(int numbers []){
+//     int start = 0; int last = numbers.length-1;
+
+//     while (start < last) {
+//        int temp = numbers[last];
+//        numbers[last] = numbers[start];
+//        numbers[start] = temp;
+
+//         start++;
+//     last--;
+//     }
+    
+
+
+// }
+
+// public static void main(String[] args) {
+//     int numbers[] = {2, 4, 6, 8, 10};
+//     reverse(numbers);
+//     for(int i = 0; i < numbers.length; i++){
+//         System.out.println(numbers[i] + "");
+
+//     }
+//     System.out.println();
+
+
+    
+// }
+// public static void pair(int num[]){
+//     for(int i = 0; i < num.length; i++){
+//         for(int j = i+1; j < num.length; j++) {
+//             System.out.print("(" + num[i] + ",");
+//             System.out.print(num[j] + ")" + " ");
+
+//         }
+//         System.out.println();
+//            }
+
+// }
+
+
+
+// public static void main(String[] args) {
+//     int num[] = {2, 4, 6, 8, 10};
+//     pair(num);
+    
+// }
+
+
+// public static void sub(int num[]){
+//     for(int i = 0; i < num.length; i++){
+//         for(int j = i; j<num.length; j++ ){
+//             for(int k = i; k<=j; k++){
+//                 System.out.print(num[k]);
+//             }
+//             System.out.println();
+//         }
+//     }
+// }
+
+// ---------------- find ing subarray ------//
+
+
+
+// public static void subarraysum(int num []){
+//      int prefix[] = new int[num.length];
+
+//     for(int i = 0; i < num.length; i++ ){
+        
+
+//     }
+// }
+
+
+
+
+
+// public static void main(String[] args) {
+    
+// int num [] = {2, 4, 6, 8, 10};
+
+
+    
+// }
+
+
+
+
+
+// }
+
+public static void bubblesort(int arr []){
+    for(int turn = 0; turn < arr.length-1; turn++){
+        for(int j = 0; j < arr.length-1-turn; j++){
+            if (arr[j] > arr[j+1]) {
+
+                int temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+                
+            }
+        }
+
     }
+
+}
+
+
+public static void printArr(int arr[]){
+    for(int i = 0; i < arr.length; i++ ){
+        System.out.print(arr[i]+ " ");
+    }
+    System.out.println();
+}
+
+
+
+public static void main(String[] args) {
+    int arr [] = {5, 4, 1, 3, 2};
+    bubblesort(arr);
+    printArr(arr);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
