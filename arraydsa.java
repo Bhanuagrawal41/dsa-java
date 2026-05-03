@@ -222,36 +222,73 @@ public class arraydsa {
 //     bubblesort(arr);
 //     printArr(arr);
 // }
-public static void slectionsort(int arr[]){
+// public static void slectionsort(int arr[]){
     
 
-    for(int i = 0; i < arr.length-1; i++){
-        int minpos = i;
-        for(int j = i+1; j < arr.length; j++){
-            if (arr[minpos] > arr[j]) {
-                minpos = j;
-            }
-        }
-        int temp = arr[minpos];
-        arr[minpos]= arr[i];
-        arr[i] = temp;
+//     for(int i = 0; i < arr.length-1; i++){
+//         int minpos = i;
+//         for(int j = i+1; j < arr.length; j++){
+//             if (arr[minpos] > arr[j]) {
+//                 minpos = j;
+//             }
+//         }
+//         int temp = arr[minpos];
+//         arr[minpos]= arr[i];
+//         arr[i] = temp;
         
+//     }
+// }
+
+
+
+// public static void printArr(int arr[]){
+//     for(int i = 0; i < arr.length; i++ ){
+//         System.out.print(arr[i]+ " ");
+//     }
+//     System.out.println();
+// }
+
+// public static void main(String[] args) {
+//     int arr[] = {5, 4, 1, 3, 2};
+//     slectionsort(arr);
+//     printArr(arr);
+    
+// }
+public static void bubblesort(int num[]){
+    for(int i = 0; i < num.length-1; i++){
+        boolean flag = false;
+        for(int j=0; j < num.length-1-i; j++){
+            if (num[j] > num[j+1]) {
+                //swap
+                int temp = num[j];
+                num[j] = num[j+1];
+                num[j+1] = temp;
+                flag = true;
+                
+            }
+          
+        }
+          if ( flag == false) break;
+    }
+    
+}
+
+
+public static void printnum(int num[]){
+    for(int x = 0; x < num.length; x++){
+        System.out.print(num[x] + " ");
     }
 }
 
 
 
-public static void printArr(int arr[]){
-    for(int i = 0; i < arr.length; i++ ){
-        System.out.print(arr[i]+ " ");
-    }
-    System.out.println();
-}
+
+
 
 public static void main(String[] args) {
-    int arr[] = {5, 4, 1, 3, 2};
-    slectionsort(arr);
-    printArr(arr);
+    int num[] = {1, 2, 3, 4, 5};
+    bubblesort(num);
+    printnum(num);
     
 }
 
