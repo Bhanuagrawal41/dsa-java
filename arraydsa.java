@@ -284,6 +284,14 @@ public static void printnum(int num[]){
 
 
 
+public static void slectionsort(int num[]){
+    for(int j=0; j<=)
+}
+
+
+
+
+
 
 public static void main(String[] args) {
     int num[] = {1, 2, 3, 4, 5};
