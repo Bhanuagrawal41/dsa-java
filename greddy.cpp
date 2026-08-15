@@ -107,35 +107,101 @@
 // max length chain of pairs
 
 
+// #include <iostream>
+// #include <vector>
+// #include <algorithm>
+// using namespace std;
+
+// bool compare(pair<int , int> p1, pair<int, int> p2){
+//     return p1.second < p2.second;
+// }
+  
+// int Max_Length_Chain(vector<pair<int, int>> chain){
+//     sort(chain.begin(), chain.end(), compare);
+//     int max_length = chain[0].second - chain[0].first;
+//     int last_End = chain[0].second;
+
+//     for(int i = 1; i<chain.size(); i++){
+    
+//         if(last_End < chain[i].first){
+//             max_length += chain[i].second - chain[i].first;
+//             last_End = chain[i].second;
+//         }
+//     }
+
+//     return max_length;
+
+// }
+
+
+// int main(){
+//     vector<pair<int, int>> chain = {{5,24}, {39, 60}, {5, 28}, {27, 40}, {50, 90}};
+
+//    cout << Max_Length_Chain(chain);
+// }
+
+
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
 using namespace std;
+class job{
+    public:
+    int idx;
+    int deadline;
+    int profit;
+    job(int idx, int deadline, int profit){
+        this->idx = idx;
+        this->deadline = deadline;
+        this->profit = profit;
+    }
+};
 
-bool compare(pair<int , int> p1, pair<int, int> p2){
-    return p1.second < p2.second;
-}
-  
-int Max_Length_Chain(vector<pair<int, int>> chain){
-    sort(chain.begin(), chain.end(), compare);
-    int max_length = chain[0].second - chain[0].first;
-    int last_End = chain[0].second;
 
-    for(int i = 1; i<chain.size(); i++){
-    
-        if(last_End < chain[i].first){
-            max_length += chain[i].second - chain[i].first;
-            last_End = chain[i].second;
-        }
+int max_Profit(vector<pair<int, int>> pairs){
+    int n = pairs.size();
+    vector<job> jobs;
+    for(int i = 0; i < n; i++){
+        jobs.emplace_back(i, pairs[i].first, pairs[i].second);
     }
 
-    return max_length;
+    sort(jobs.begin(), jobs.end(), [](job &a, job &b){
+        return a.profit > b.profit;
+    });
+      cout << "taking job no" << jobs[0].idx << endl;
+     int profit = jobs[0].profit;
+     int deadlines = jobs[0].deadline;
+    for(int i = 1; i < jobs.size(); i++){
+        if(jobs[i].deadline > deadlines ){
+            cout << "slecting the jobs" << jobs[i].idx << endl;
+            profit += jobs[i].profit;
+            deadlines = jobs[i].deadline;
+        }
+    }
+    cout << "Total profit is : " << profit;
+    return profit;
+        
 
-}
-
+};
 
 int main(){
-    vector<pair<int, int>> chain = {{5,24}, {39, 60}, {5, 28}, {27, 40}, {50, 90}};
 
-   cout << Max_Length_Chain(chain);
+int n = 4;
+
+vector<pair<int, int>> jobs(n, make_pair(0, 0));
+
+jobs[0] = make_pair(4, 20);
+jobs[1] = make_pair(1, 10);
+jobs[2] = make_pair(1, 10);
+jobs[3] = make_pair(1, 30);
+
+max_Profit(jobs);
+return 0;
+
+
+
+
+
 }
