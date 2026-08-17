@@ -30,8 +30,29 @@ TreeNode* buildTree(vector<int> nodes){
        currNode->left = buildTree(nodes);
        currNode->right = buildTree(nodes);
 
-         cout << currNode->data << endl;
        return currNode;
+}
+
+void preorder(TreeNode* root){
+            
+    if(root == NULL){
+        return;
+    }
+    cout << root-> data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void inorder(TreeNode* root){
+    if(root == NULL){
+        return;
+    }
+
+
+
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
 }
 
 
@@ -40,6 +61,9 @@ TreeNode* buildTree(vector<int> nodes){
 int main(){
       
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-     cout << buildTree(nodes);
+           TreeNode* root = buildTree(nodes);
+           inorder(root);
+           cout << endl;
+
 
 }
