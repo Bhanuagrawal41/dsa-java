@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <queue>
 using namespace std;
 
 class TreeNode{
@@ -54,6 +55,38 @@ void inorder(TreeNode* root){
     cout << root->data << " ";
     inorder(root->right);
 }
+void postorder(TreeNode* root){
+    if(root == NULL){
+        return;
+    }
+
+    postorder(root->left);
+    postorder(root->right);
+    cout<< root->data << " ";
+}
+
+void levelorder(TreeNode* root){
+    if(root == NULL){
+        return;
+    }
+    queue<TreeNode*> Q;
+    Q.push(root);
+
+    while(!Q.empty()){
+        TreeNode* curr = Q.front();
+        Q.pop();
+        cout << curr->data << " ";
+        if(curr->left != NULL){
+            Q.push(curr->left);
+        }
+
+        if(curr->right != NULL ){
+            Q.push(curr->right);
+        }
+
+    }
+    cout << endl;
+}
 
 
 
@@ -62,7 +95,9 @@ int main(){
       
     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
            TreeNode* root = buildTree(nodes);
-           inorder(root);
+        //    inorder(root);
+        //    postorder(root);
+           levelorder(root);
            cout << endl;
 
 
