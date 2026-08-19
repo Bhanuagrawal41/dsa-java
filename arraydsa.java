@@ -357,3 +357,46 @@
 //         return ans;
 //     }
 // }
+
+
+class Solution {
+public:
+    int maxNumberOfFamilies(int n, vector<vector<int>>& reservedSeats) {
+        unordered_map<int, int> rows;
+
+        // Store reserved seats as a bitmask
+        for (auto &seat : reservedSeats) {
+            int row = seat[0];
+            int s = seat[1];
+
+            // Only seats 2-9 matter
+            if (s >= 2 && s <= 9) {
+                rows[row] |= (1 << (s - 2));
+            }
+        }
+
+        // Rows with no reservations can fit 2 groups
+        int ans = (n - rows.size()) * 2;
+
+        // Masks:
+        // 2-5  -> 00001111
+        // 4-7  -> 00111100
+        // 6-9  -> 11110000
+        int left  = 0b00001111;
+        int mid   = 0b00111100;
+        int right = 0b11110000;
+
+        for (auto &[row, mask] : rows) {
+            bool l = (mask & left) == 0;
+            bool m = (mask & mid) == 0;
+            bool r = (mask & right) == 0;
+
+            if (l && r)
+                ans += 2;
+            else if (l || m || r)
+                ans += 1;
+        }
+
+        return ans;
+    }
+};
