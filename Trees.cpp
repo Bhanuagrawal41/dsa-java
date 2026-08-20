@@ -75,6 +75,15 @@ void levelorder(TreeNode* root){
     while(!Q.empty()){
         TreeNode* curr = Q.front();
         Q.pop();
+        if(curr == NULL){
+          cout << endl;
+          if(Q.empty()){
+            break;
+          }
+          Q.push(NULL);
+
+        }else{
+        
         cout << curr->data << " ";
         if(curr->left != NULL){
             Q.push(curr->left);
@@ -83,9 +92,10 @@ void levelorder(TreeNode* root){
         if(curr->right != NULL ){
             Q.push(curr->right);
         }
+    }
 
     }
-    cout << endl;
+    
 }
 
 
@@ -98,7 +108,7 @@ int main(){
         //    inorder(root);
         //    postorder(root);
            levelorder(root);
-           cout << endl;
+           
 
 
 }
