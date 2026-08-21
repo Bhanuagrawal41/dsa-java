@@ -71,6 +71,7 @@ void levelorder(TreeNode* root){
     }
     queue<TreeNode*> Q;
     Q.push(root);
+    Q.push(NULL);
 
     while(!Q.empty()){
         TreeNode* curr = Q.front();
@@ -98,16 +99,30 @@ void levelorder(TreeNode* root){
     
 }
 
+//height of the binary tree----//
+
+int max_height(TreeNode* root){
+    if(root == NULL){
+        return 0;
+    }
+
+   int right = max_height(root->left);
+   int left = max_height(root->right);
+
+   return max(right,  left)+ 1;
+}
+
 
 
 
 int main(){
       
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, 6, -1, 7, -1, -1, 3, -1, -1};
            TreeNode* root = buildTree(nodes);
         //    inorder(root);
         //    postorder(root);
            levelorder(root);
+           cout << max_height(root);
            
 
 
