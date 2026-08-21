@@ -101,15 +101,15 @@ void levelorder(TreeNode* root){
 
 //height of the binary tree----//
 
-int max_height(TreeNode* root){
+int count(TreeNode* root){
     if(root == NULL){
         return 0;
     }
 
-   int right = max_height(root->left);
-   int left = max_height(root->right);
+   int right = count(root->left);
+   int left = count(root->right);
 
-   return max(right,  left)+ 1;
+   return (right +  left)+ 1;
 }
 
 
@@ -122,7 +122,7 @@ int main(){
         //    inorder(root);
         //    postorder(root);
            levelorder(root);
-           cout << max_height(root);
+           cout << count(root);
            
 
 
