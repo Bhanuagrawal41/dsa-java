@@ -288,25 +288,46 @@ public:
 // };
 
 // leet code hard baby easy peasy only too 1:30 hr to solve this simple hard problem :)
+// class Solution {
+// public:
+//      int max_Path(TreeNode* root, int &maxi){
+//         if(root == NULL){
+//             return 0;
+//         }
+//         int left = max_Path(root-> left, maxi);
+//         int right = max_Path(root -> right, maxi);
+//          int nicche_hi_Milgya_ans = (left + right) + root->val;
+//          int koi_ek_accha = max(left, right) + root->val;
+//          int only_root_is_accha = root->val;
+
+//         maxi = max({maxi, nicche_hi_Milgya_ans, koi_ek_accha, only_root_is_accha});
+
+//         return max(koi_ek_accha, only_root_is_accha);
+//      }
+//     int maxPathSum(TreeNode* root) {
+//       int maxi = INT_MIN;
+//       max_Path(root, maxi);
+//        return maxi;
+//     }
+// };
+
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+ * };
+ */
 class Solution {
-public:
-     int max_Path(TreeNode* root, int &maxi){
-        if(root == NULL){
-            return 0;
+public: 
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if(p == NULL || q == NULL){
+            return (p == q);
         }
-        int left = max_Path(root-> left, maxi);
-        int right = max_Path(root -> right, maxi);
-         int nicche_hi_Milgya_ans = (left + right) + root->val;
-         int koi_ek_accha = max(left, right) + root->val;
-         int only_root_is_accha = root->val;
-
-        maxi = max({maxi, nicche_hi_Milgya_ans, koi_ek_accha, only_root_is_accha});
-
-        return max(koi_ek_accha, only_root_is_accha);
-     }
-    int maxPathSum(TreeNode* root) {
-      int maxi = INT_MIN;
-      max_Path(root, maxi);
-       return maxi;
+        return(p->val == q->val)&& isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
     }
 };
