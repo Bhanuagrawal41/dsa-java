@@ -227,3 +227,36 @@ public:
 
 
 };
+
+
+//diameter fo the binary treee
+
+class Solution {
+public:
+   int max_height(TreeNode* root){
+     if(root == NULL){
+            return 0;
+
+        }
+
+        int left = max_height(root->left);
+        int right = max_height(root->right);
+
+        return max(right, left)+1;
+   }
+     
+    int diameterOfBinaryTree(TreeNode* root) {
+        if(root == NULL){
+            return 0;
+        }
+      int left = max_height(root->left);
+      int right = max_height(root->right);
+
+      int curr = (left + right);
+
+      int leftDiameter = diameterOfBinaryTree(root->left);
+      int rightDiameter = diameterOfBinaryTree(root -> right);
+
+      return max(curr, max(leftDiameter, rightDiameter));
+    }
+};
