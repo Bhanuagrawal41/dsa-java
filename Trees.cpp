@@ -231,58 +231,82 @@ public:
 
 //diameter fo the binary treee
 
+// class Solution {
+// public:
+//    int max_height(TreeNode* root){
+//      if(root == NULL){
+//             return 0;
+
+//         }
+
+//         int left = max_height(root->left);
+//         int right = max_height(root->right);
+
+//         return max(right, left)+1;
+//    }
+     
+//     int diameterOfBinaryTree(TreeNode* root) {
+//         if(root == NULL){
+//             return 0;
+//         }
+//       int left = max_height(root->left);
+//       int right = max_height(root->right);
+
+//       int curr = (left + right);
+
+//       int leftDiameter = diameterOfBinaryTree(root->left);
+//       int rightDiameter = diameterOfBinaryTree(root -> right);
+
+//       return max(curr, max(leftDiameter, rightDiameter));
+//     }
+// };
+
+// // optimised solution for the diameter of the binary tree 
+
+
+// class Solution { 
+// public:
+//    int max_height(TreeNode* root, int &diameter){
+//      if(root == NULL){
+//             return 0;
+
+//         }
+
+//         int left = max_height(root->left, diameter);
+//         int right = max_height(root->right, diameter);
+//         diameter = max(diameter, left + right);
+
+//         return max(right, left)+1;
+//    }
+     
+//     int diameterOfBinaryTree(TreeNode* root) {
+//         int diameter = 0;
+//         max_height(root, diameter);
+//         return diameter;
+      
+//     }
+// };
+
+// leet code hard baby easy peasy only too 1:30 hr to solve this simple hard problem :)
 class Solution {
 public:
-   int max_height(TreeNode* root){
-     if(root == NULL){
-            return 0;
-
-        }
-
-        int left = max_height(root->left);
-        int right = max_height(root->right);
-
-        return max(right, left)+1;
-   }
-     
-    int diameterOfBinaryTree(TreeNode* root) {
+     int max_Path(TreeNode* root, int &maxi){
         if(root == NULL){
             return 0;
         }
-      int left = max_height(root->left);
-      int right = max_height(root->right);
+        int left = max_Path(root-> left, maxi);
+        int right = max_Path(root -> right, maxi);
+         int nicche_hi_Milgya_ans = (left + right) + root->val;
+         int koi_ek_accha = max(left, right) + root->val;
+         int only_root_is_accha = root->val;
 
-      int curr = (left + right);
+        maxi = max({maxi, nicche_hi_Milgya_ans, koi_ek_accha, only_root_is_accha});
 
-      int leftDiameter = diameterOfBinaryTree(root->left);
-      int rightDiameter = diameterOfBinaryTree(root -> right);
-
-      return max(curr, max(leftDiameter, rightDiameter));
-    }
-};
-
-// optimised solution for the diameter of the binary tree 
-
-
-class Solution { 
-public:
-   int max_height(TreeNode* root, int &diameter){
-     if(root == NULL){
-            return 0;
-
-        }
-
-        int left = max_height(root->left, diameter);
-        int right = max_height(root->right, diameter);
-        diameter = max(diameter, left + right);
-
-        return max(right, left)+1;
-   }
-     
-    int diameterOfBinaryTree(TreeNode* root) {
-        int diameter = 0;
-        max_height(root, diameter);
-        return diameter;
-      
+        return max(koi_ek_accha, only_root_is_accha);
+     }
+    int maxPathSum(TreeNode* root) {
+      int maxi = INT_MIN;
+      max_Path(root, maxi);
+       return maxi;
     }
 };
