@@ -260,3 +260,29 @@ public:
       return max(curr, max(leftDiameter, rightDiameter));
     }
 };
+
+// optimised solution for the diameter of the binary tree 
+
+
+class Solution { 
+public:
+   int max_height(TreeNode* root, int &diameter){
+     if(root == NULL){
+            return 0;
+
+        }
+
+        int left = max_height(root->left, diameter);
+        int right = max_height(root->right, diameter);
+        diameter = max(diameter, left + right);
+
+        return max(right, left)+1;
+   }
+     
+    int diameterOfBinaryTree(TreeNode* root) {
+        int diameter = 0;
+        max_height(root, diameter);
+        return diameter;
+      
+    }
+};
