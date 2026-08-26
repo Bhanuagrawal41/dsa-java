@@ -27,42 +27,70 @@
 // };
 
 
-class Solution {
-public:
-    int totalFruit(vector<int>& fruits) {
+// class Solution {
+// public:
+//     int totalFruit(vector<int>& fruits) {
         
-        unordered_map<int, int> hash;
-        int first = 0;
-          int count = 0;
-          int ans = 0;
-        for(int i = 0; i < fruits.size(); i++){
-            if(hash[fruits[i]] == 0){
-                count++;
-            }
-            hash[fruits[i]]++;
-            int var = fruits[first];
+//         unordered_map<int, int> hash;
+//         int first = 0;
+//           int count = 0;
+//           int ans = 0;
+//         for(int i = 0; i < fruits.size(); i++){
+//             if(hash[fruits[i]] == 0){
+//                 count++;
+//             }
+//             hash[fruits[i]]++;
+//             int var = fruits[first];
             
              
-            while(count > 2){
-                hash[fruits[first]]--;
-                if(hash[fruits[first]] == 0){
-                    count--;
-                }
-                first++;
+//             while(count > 2){
+//                 hash[fruits[first]]--;
+//                 if(hash[fruits[first]] == 0){
+//                     count--;
+//                 }
+//                 first++;
             
                
                 
-            }
-            ans = max(ans, i - first + 1);
+//             }
+//             ans = max(ans, i - first + 1);
           
            
 
            
-        }
+//         }
 
-        return ans;
+//         return ans;
    
           
 
+//     }
+// };
+
+
+
+
+class Solution {
+public:
+    int characterReplacement(string s, int k) {
+        vector<int> freq(26, 0);
+
+        int left = 0;
+        int maxFreq = 0;
+        int ans = 0;
+
+        for (int right = 0; right < s.size(); right++) {
+            freq[s[right] - 'A']++;
+            maxFreq = max(maxFreq, freq[s[right] - 'A']);
+
+            while ((right - left + 1) - maxFreq > k) {
+                freq[s[left] - 'A']--;
+                left++;
+            }
+
+            ans = max(ans, right - left + 1);
+        }
+
+        return ans;
     }
 };
