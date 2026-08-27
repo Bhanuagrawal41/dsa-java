@@ -1,142 +1,224 @@
+
+
+
 #include <iostream>
 #include <vector>
 #include <queue>
+
 using namespace std;
 
-class TreeNode{
+class Node{
     public:
-    int data;
-    TreeNode* left;
-    TreeNode* right;
-    TreeNode(int data){
-        this->data = data;
-        left = NULL;
+    int root;
+    Node* right;
+    Node* left;
+
+    Node(int root){
+        root = this->root;
         right = NULL;
+        left = NULL;
     }
 
 };
-
-
 static int idx = -1;
 
-TreeNode* buildTree(vector<int> nodes){
-       idx++;
-       if(nodes[idx] == -1){
-        return NULL;
-       }
-
-
-
-       TreeNode* currNode = new TreeNode(nodes[idx]);
-       currNode->left = buildTree(nodes);
-       currNode->right = buildTree(nodes);
-
-       return currNode;
-}
-
-void preorder(TreeNode* root){
-            
-    if(root == NULL){
-        return;
-    }
-    cout << root-> data << " ";
-    preorder(root->left);
-    preorder(root->right);
-}
-
-void inorder(TreeNode* root){
-    if(root == NULL){
+Node* buildTree(vector<int> nodes){
+    idx++;
+    if(nodes[idx] == -1){
         return;
     }
 
+    Node* currnode = new Node(nodes[idx]);
+    currnode->left = buildTree(nodes);
+    currnode->right = buildTree(nodes);
 
 
-    inorder(root->left);
-    cout << root->data << " ";
-    inorder(root->right);
+
+    return currnode;
+
+
+
 }
-void postorder(TreeNode* root){
-    if(root == NULL){
-        return;
-    }
-
-    postorder(root->left);
-    postorder(root->right);
-    cout<< root->data << " ";
-}
-
-void levelorder(TreeNode* root){
-    if(root == NULL){
-        return;
-    }
-    queue<TreeNode*> Q;
-    Q.push(root);
-    Q.push(NULL);
-
-    while(!Q.empty()){
-        TreeNode* curr = Q.front();
-        Q.pop();
-        if(curr == NULL){
-          cout << endl;
-          if(Q.empty()){
-            break;
-          }
-          Q.push(NULL);
-
-        }else{
-        
-        cout << curr->data << " ";
-        if(curr->left != NULL){
-            Q.push(curr->left);
-        }
-
-        if(curr->right != NULL ){
-            Q.push(curr->right);
-        }
-    }
-
-    }
-    
-}
-
-//height of the binary tree----//
-
-int count(TreeNode* root){
-    if(root == NULL){
-        return 0;
-    }
-
-   int right = count(root->left);
-   int left = count(root->right);
-
-   return (right +  left)+ 1;
-}
-int Sum_of_Nodes(TreeNode* root){
-    if(root == nullptr){
-        return 0;
-    }
-
-    int right = Sum_of_Nodes(root -> left);
-    int left = Sum_of_Nodes(root -> right);
-
-    return (right + left + root->data);
-}
-
-
-
 
 int main(){
+    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+    Node* root = buildTree(nodes);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// #include <iostream>
+// #include <vector>
+// #include <queue>
+// using namespace std;
+
+// class TreeNode{
+//     public:
+//     int data;
+//     TreeNode* left;
+//     TreeNode* right;
+//     TreeNode(int data){
+//         this->data = data;
+//         left = NULL;
+//         right = NULL;
+//     }
+
+// };
+
+
+// static int idx = -1;
+
+// TreeNode* buildTree(vector<int> nodes){
+//        idx++;
+//        if(nodes[idx] == -1){
+//         return NULL;
+//        }
+
+
+
+//        TreeNode* currNode = new TreeNode(nodes[idx]);
+//        currNode->left = buildTree(nodes);
+//        currNode->right = buildTree(nodes);
+
+//        return currNode;
+// }
+
+// void preorder(TreeNode* root){
+            
+//     if(root == NULL){
+//         return;
+//     }
+//     cout << root-> data << " ";
+//     preorder(root->left);
+//     preorder(root->right);
+// }
+
+// void inorder(TreeNode* root){
+//     if(root == NULL){
+//         return;
+//     }
+
+
+
+//     inorder(root->left);
+//     cout << root->data << " ";
+//     inorder(root->right);
+// }
+// void postorder(TreeNode* root){
+//     if(root == NULL){
+//         return;
+//     }
+
+//     postorder(root->left);
+//     postorder(root->right);
+//     cout<< root->data << " ";
+// }
+
+// void levelorder(TreeNode* root){
+//     if(root == NULL){
+//         return;
+//     }
+//     queue<TreeNode*> Q;
+//     Q.push(root);
+//     Q.push(NULL);
+
+//     while(!Q.empty()){
+//         TreeNode* curr = Q.front();
+//         Q.pop();
+//         if(curr == NULL){
+//           cout << endl;
+//           if(Q.empty()){
+//             break;
+//           }
+//           Q.push(NULL);
+
+//         }else{
+        
+//         cout << curr->data << " ";
+//         if(curr->left != NULL){
+//             Q.push(curr->left);
+//         }
+
+//         if(curr->right != NULL ){
+//             Q.push(curr->right);
+//         }
+//     }
+
+//     }
+    
+// }
+
+// //height of the binary tree----//
+
+// int count(TreeNode* root){
+//     if(root == NULL){
+//         return 0;
+//     }
+
+//    int right = count(root->left);
+//    int left = count(root->right);
+
+//    return (right +  left)+ 1;
+// }
+// int Sum_of_Nodes(TreeNode* root){
+//     if(root == nullptr){
+//         return 0;
+//     }
+
+//     int right = Sum_of_Nodes(root -> left);
+//     int left = Sum_of_Nodes(root -> right);
+
+//     return (right + left + root->data);
+// }
+
+
+
+
+// int main(){
       
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, 6, -1, 7, -1, -1, 3, -1, -1};
-           TreeNode* root = buildTree(nodes);
-        //    inorder(root);
-        //    postorder(root);
-           levelorder(root);
-           cout << count(root);
+//     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, 6, -1, 7, -1, -1, 3, -1, -1};
+//            TreeNode* root = buildTree(nodes);
+//         //    inorder(root);
+//         //    postorder(root);
+//            levelorder(root);
+//            cout << count(root);
            
 
 
-}
+// }
 
 
 // class Solution {
@@ -200,33 +282,33 @@ int main(){
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
-public:
-    bool isBalanced(TreeNode* root) {
+// // class Solution {
+// public:
+//     bool isBalanced(TreeNode* root) {
   
-        return dfsHeight(root) != -1;
-    }
+//         return dfsHeight(root) != -1;
+//     }
 
-    int dfsHeight(TreeNode* root){
-        if(root == NULL){
-            return 0;
-        }
+//     int dfsHeight(TreeNode* root){
+//         if(root == NULL){
+//             return 0;
+//         }
 
-        int left = dfsHeight(root->left);
-         if(left == -1) return -1;
+//         int left = dfsHeight(root->left);
+//          if(left == -1) return -1;
 
-        int right = dfsHeight(root->right);
-        if(right == -1) return -1;
+//         int right = dfsHeight(root->right);
+//         if(right == -1) return -1;
 
-        if(abs(left - right) > 1){
-            return -1;
-        }
+//         if(abs(left - right) > 1){
+//             return -1;
+//         }
 
-        return max(left, right) + 1;
-    }
+//         return max(left, right) + 1;
+//     }
 
 
-};
+// };
 
 
 //diameter fo the binary treee
@@ -322,12 +404,12 @@ public:
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
-public: 
-    bool isSameTree(TreeNode* p, TreeNode* q) {
-        if(p == NULL || q == NULL){
-            return (p == q);
-        }
-        return(p->val == q->val)&& isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
-    }
-};
+// class Solution {
+// public: 
+//     bool isSameTree(TreeNode* p, TreeNode* q) {
+//         if(p == NULL || q == NULL){
+//             return (p == q);
+//         }
+//         return(p->val == q->val)&& isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+//     }
+// };
