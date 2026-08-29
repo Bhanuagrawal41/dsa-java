@@ -1,88 +1,126 @@
 
 
 
-#include <iostream>
-#include <vector>
-#include <queue>
+// #include <iostream>
+// #include <vector>
+// #include <queue>
 
-using namespace std;
+// using namespace std;
 
-class Node{
-    public:
-    int root;
-    Node* right;
-    Node* left;
+// class Node{
+//     public:
+//     int root;
+//     Node* right;
+//     Node* left;
 
-    Node(int root){
-        root = this->root;
-        right = NULL;
-        left = NULL;
-    }
+//     Node(int root){
+//         root = this->root;
+//         right = NULL;
+//         left = NULL;
+//     }
 
-};
-static int idx = -1;
+// };
+// static int idx = -1;
 
-Node* buildTree(vector<int> nodes){
-    idx++;
-    if(nodes[idx] == -1){
-        return;
-    }
+// Node* buildTree(vector<int> nodes){
+//     idx++;
+//     if(nodes[idx] == -1){
+//         return;
+//     }
 
-    Node* currnode = new Node(nodes[idx]);
-    currnode->left = buildTree(nodes);
-    currnode->right = buildTree(nodes);
-
-
-
-    return currnode;
+//     Node* currnode = new Node(nodes[idx]);
+//     currnode->left = buildTree(nodes);
+//     currnode->right = buildTree(nodes);
 
 
 
-}
+//     return currnode;
 
-int main(){
-    vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
-    Node* root = buildTree(nodes);
-}
+
+
+// }
+
+// int main(){
+//     vector<int> nodes = {1, 2, 4, -1, -1, 5, -1, -1, 3, -1, 6, -1, -1};
+//     Node* root = buildTree(nodes);
+// }
+
+
+// // class Solution {
+// // public:
+// //     void nextPermutation(vector<int>& nums) {
+
+// //         int n = nums.size();
+
+// //         // 1. Find pivot
+// //         int i = n - 2;
+
+// //         while (i >= 0 && nums[i] >= nums[i + 1]) {
+// //             i--;
+// //         }
+
+// //         // 2. Find the next greater element
+// //         if (i >= 0) {
+// //             int j = n - 1;
+
+// //             while (nums[j] <= nums[i]) {
+// //                 j--;
+// //             }
+
+// //             swap(nums[i], nums[j]);
+// //         }
+
+// //         // 3. Reverse the suffix
+// //         reverse(nums.begin() + i + 1, nums.end());
+// //     }
+// // };
+
+
+
+
+
+
+
 
 
 // class Solution {
 // public:
-//     void nextPermutation(vector<int>& nums) {
+//     void setZeroes(vector<vector<int>>& matrix) {
+//         int m = matrix.size();
+//         int n = matrix[0].size();
 
-//         int n = nums.size();
+//         vector<int> rows(m, 0);
+//         vector<int> cols(n, 0);
 
-//         // 1. Find pivot
-//         int i = n - 2;
-
-//         while (i >= 0 && nums[i] >= nums[i + 1]) {
-//             i--;
-//         }
-
-//         // 2. Find the next greater element
-//         if (i >= 0) {
-//             int j = n - 1;
-
-//             while (nums[j] <= nums[i]) {
-//                 j--;
+//         // Find where the original zeroes are
+//         for (int i = 0; i < m; i++) {
+//             for (int j = 0; j < n; j++) {
+//                 if (matrix[i][j] == 0) {
+//                     rows[i] = 1;
+//                     cols[j] = 1;
+//                 }
 //             }
-
-//             swap(nums[i], nums[j]);
 //         }
 
-//         // 3. Reverse the suffix
-//         reverse(nums.begin() + i + 1, nums.end());
+//         // Make marked rows zero
+//         for (int i = 0; i < m; i++) {
+//             if (rows[i] == 1) {
+//                 for (int j = 0; j < n; j++) {
+//                     matrix[i][j] = 0;
+//                 }
+//             }
+//         }
+
+//         // Make marked columns zero
+//         for (int j = 0; j < n; j++) {
+//             if (cols[j] == 1) {
+//                 for (int i = 0; i < m; i++) {
+//                     matrix[i][j] = 0;
+//                 }
+//             }
+//         }
 //     }
 // };
-
-
-
-
-
-
-
-
-
 
 
 
@@ -440,3 +478,43 @@ int main(){
 //         return(p->val == q->val)&& isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
 //     }
 // };
+
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        vector<int> rows(m, 0);
+        vector<int> cols(n, 0);
+
+        // Find where the original zeroes are
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] == 0) {
+                    rows[i] = 1;
+                    cols[j] = 1;
+                }
+            }
+        }
+
+        // Make marked rows zero
+        for (int i = 0; i < m; i++) {
+            if (rows[i] == 1) {
+                for (int j = 0; j < n; j++) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+
+        // Make marked columns zero
+        for (int j = 0; j < n; j++) {
+            if (cols[j] == 1) {
+                for (int i = 0; i < m; i++) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+    }
+};
