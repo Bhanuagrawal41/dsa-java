@@ -1,73 +1,87 @@
-// class Solution {
-// public:
-//     bool uniformArray(vector<int>& nums1) {
-//         int minOdd = INT_MAX;
+// // class Solution {
+// // public:
+// //     bool uniformArray(vector<int>& nums1) {
+// //         int minOdd = INT_MAX;
 
-//         for (int x : nums1) {
-//             if (x % 2 != 0) {
-//                 minOdd = min(minOdd, x);
-//             }
-//         }
+// //         for (int x : nums1) {
+// //             if (x % 2 != 0) {
+// //                 minOdd = min(minOdd, x);
+// //             }
+// //         }
 
-//         // If all numbers are already even or all already odd
-//         if (minOdd == INT_MAX) return true;
+// //         // If all numbers are already even or all already odd
+// //         if (minOdd == INT_MAX) return true;
 
-//         for (int x : nums1) {
-//             // Every even number needs a smaller odd number
-//             if (x % 2 == 0 && x <= minOdd) {
-//                 return false;
-//             }
-//         }
+// //         for (int x : nums1) {
+// //             // Every even number needs a smaller odd number
+// //             if (x % 2 == 0 && x <= minOdd) {
+// //                 return false;
+// //             }
+// //         }
 
-//         return true;
+// //         return true;
     
 
+// //     }
+// // };
+
+
+// class Solution {
+// public:
+//     vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
+
+//         vector<vector<int>> ans;
+
+//         if (root == nullptr)
+//             return ans;
+
+//         queue<TreeNode*> q;
+//         q.push(root);
+
+//         bool flag = true;
+
+//         while (!q.empty()) {
+
+//             int size = q.size();
+//             vector<int> level;
+
+//             for (int i = 0; i < size; i++) {
+
+//                 TreeNode* node = q.front();
+//                 q.pop();
+
+//                 level.push_back(node->val);
+
+//                 if (node->left)
+//                     q.push(node->left);
+
+//                 if (node->right)
+//                     q.push(node->right);
+//             }
+
+//             if (!flag) {
+//                 reverse(level.begin(), level.end());
+//             }
+
+//             ans.push_back(level);
+
+//             flag = !flag;
+//         }
+
+//         return ans;
 //     }
 // };
 
 
 class Solution {
 public:
-    vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
-
-        vector<vector<int>> ans;
-
-        if (root == nullptr)
-            return ans;
-
-        queue<TreeNode*> q;
-        q.push(root);
-
-        bool flag = true;
-
-        while (!q.empty()) {
-
-            int size = q.size();
-            vector<int> level;
-
-            for (int i = 0; i < size; i++) {
-
-                TreeNode* node = q.front();
-                q.pop();
-
-                level.push_back(node->val);
-
-                if (node->left)
-                    q.push(node->left);
-
-                if (node->right)
-                    q.push(node->right);
+    string largestOddNumber(string num) {
+        for(int i = num.size()-1; i >= 0; i--){
+            if(num[i] % 2 != 0){
+                return num.substr(0, i+1);
             }
-
-            if (!flag) {
-                reverse(level.begin(), level.end());
-            }
-
-            ans.push_back(level);
-
-            flag = !flag;
         }
-
-        return ans;
+        return "";
+        
     }
 };
